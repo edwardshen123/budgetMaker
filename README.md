@@ -1,10 +1,14 @@
 # budgetMaker
-personal budget maker
+
+============================
+Personal Budget Builder
+============================
+
 ----------------------------
 ChangeLog
 ----------------------------
-May, 23 - Create repository
-	  Wrote basic monthly budget builder class
+May, 23 - Create repository,  Wrote basic monthly budget builder class
+
 
 ----------------------------
 To Be Changed/Implemented
