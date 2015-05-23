@@ -7,10 +7,10 @@ Personal Budget Builder
 ----------------------------
 ChangeLog
 ----------------------------
-May, 23 - Create repository,  Wrote basic monthly budget builder class
+May, 23 - Create repository,  Wrote basic monthly budget builder class, expense builder and expense class
 
 
 ----------------------------
 To Be Changed/Implemented
 ----------------------------
-- Change basic data structure to LinkedList within HashMap
+- Finish writing add method
