@@ -18,9 +18,9 @@ public class monthlyBudgetBuilder {
     private double allowance;
 
     //Expense
-    private double fixedExpenses;
-    private double variableExpenses;
-    private double periodicExpenses;
+    private expenseBuilder fixed;
+    private expenseBuilder variable;
+    private expenseBuilder periodic;
 
     //Expense Breakdown
     private double food;
@@ -42,6 +42,10 @@ public class monthlyBudgetBuilder {
     }
 
     private void initiate() {
+	fixed = new expenseBuilder("fixedExpenses");
+	variable = new expenseBuilder("variableExpenses");
+	periodic = new expenseBuilder("periodicExpenses");
+	createBasicCategories();
 	wage = 0.0;
 	gift = 0.0;
 	capitalGain = 0.0;
@@ -63,6 +67,26 @@ public class monthlyBudgetBuilder {
 	periodicExpenses = insurance + entertainments;
 	netExpenses = fixedExpenses + variableExpenses;
 	budgetBalance = netIncome - netExpenses;
+    }
+
+    private void createBasicCategories() {
+	addEntry(fixed, "rent", 0.0);
+	addEntry(fixed, "savings", 0.0);
+	addEntry(fixed, "loanInterest", new expenseBuilder("loanInterest"));
+	addEntry(variable, "food", new expenseBuilder("food"));
+	addEntry(variable, "investment", new expenseBuilder("investment"));
+	addEntry(variable, "utilities", new expenseBuilder("utilities"));
+	addEntry(periodic, "insurance", new expenseBuilder("insurance"));
+	addEntry(periodic, "entertainments", new expenseBuilder("entertainments"));
+	expenseBuilder foodExpenses = expenseBuilder.get("food");
+	addEntry(foodExpenses, "groceries", new expenseBuilder("groceries"));
+	addEntry(foodExpenses, "diningOut", new expenseBuilder("diningOut"));
+    }
+
+    public void addEntry(expenseBuilder encomposing, String category, E value) {
+	if (!encomposing.containsKey(category)) {
+	    encomposing.put(category, value);
+	}
     }
 
     public String toString() {
