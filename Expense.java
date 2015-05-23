@@ -3,11 +3,21 @@ public class Expense {
     private String item;
     private double unitPrice;
     private int quantity;
+
+    private Expense next;
     
     public Expense(String item, double unitPrice, int quantity) {
 	this.item = item;
 	this.price = price;
 	this.quantity = quantity;
+	next = null;
+    }
+
+    public void setNext(Expense e) {
+	next = e;
+    }
+    public Expense getNext() {
+	return next;
     }
 
     public String getItem() {

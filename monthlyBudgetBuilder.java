@@ -97,21 +97,33 @@ public class monthlyBudgetBuilder {
 
 	//Add to ExpenseBuilder
 	expenseBuilder eB = getBuilder(category);
+	if (eB.containsValue(location)) {
+	    e.setNext(eB.get(location));
+	    eB.put(location, e);
+	} else {
+	    eB.put(location, e);
+	}
 
 	//Add to total expenses
 	HashMap map;
-	if (getCategory(category) == 1) map = fixed;
-	if (getCategory(category) == 2) map = variable;
-	if (getCategory(category) == 3) map = periodic;
+	int cateValue = getCategory(category);
+	if (cateValue == 1) map = fixed;
+	if (cateValue == 2) map = variable;
+	if (cateValue == 3) map = periodic;
 	map.put(category, map.get(category) + price);
     }
 
     public expenseBuilder getBuilder(String category) {
 	expenseBuilder eB;
-	if (getCategory(category) == 1) eB = fixedBuilder;
-	if (getCategory(category) == 2) eB = variableBuilder;
-	if (getCategory(category) == 3) eB = periodicBuilder;
-	
+	int cateValue = getCategory(category);
+	if (cateValue == 1) eB = fixedBuilder;
+	if (cateValue == 2) eB = variableBuilder;
+	if (cateValue == 3) eB = periodicBuilder;
+	key = category
+	if (category.equals("diningOut") || category.equals("groceries")) key = "food";
+	eB = eB.get(key);
+	if (key.equals("food")) eB = eB.get(category);
+	return eB;
     }
     
     public int getCategory(String category) {
