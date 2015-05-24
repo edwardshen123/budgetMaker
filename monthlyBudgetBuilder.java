@@ -51,7 +51,16 @@ public class monthlyBudgetBuilder {
 
     public void reCalculate() {
 	netIncome = wage + gift + capitalGain + allowance;
-	food = grocery + diningOut;
+	double diningOut = variable.get("diningOut");
+	double groceries = variable.get("groceries");
+	double rent = fixed.get("rent");
+	double savings = fixed.get("savings");
+	double loanInterests = fixed.get("loanInterests");
+	double food = diningOut + groceries;
+	double investments = variable.get("investments");
+	double utilities = variable.get("utilities");
+	double insurances = periodic.get("insurance");
+	double entertainments = periodic.get("entertainments");
 	fixed = rent + savings + loanInterest;
 	variable = food + investment + utilities;
 	periodic = insurance + entertainments;
