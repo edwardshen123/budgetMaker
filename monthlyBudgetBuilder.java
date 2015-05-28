@@ -1,6 +1,8 @@
 import java.util.Iterator;
 import java.util.HashMap;
 
+//use tree to store everything
+
 public class monthlyBudgetBuilder {
 
     //Base Info
@@ -27,7 +29,7 @@ public class monthlyBudgetBuilder {
     private HashMap variable;
     private HashMap periodic;
 
-    public budgetBuilder(int month, int year) {
+    public monthlyBudgetBuilder(int month, int year) {
 	this.month = month;
 	this.year = year;
 	initiate();
@@ -94,9 +96,12 @@ public class monthlyBudgetBuilder {
 	addCategory(foodExpenses, "diningOut", new expenseBuilder("diningOut"));
     }
 
-    public void addCategory(expenseBuilder encomposing, String category, HashMap map) {
+    public void addCategory(expenseBuilder encomposing, HashMap general, String category, HashMap value) {
 	if (!encomposing.containsKey(category)) {
 	    encomposing.add(category, value);
+	    if (!general.containsKey(category)) {
+		general.add(category, 0.0);
+	    }
 	}
     }
 
@@ -120,6 +125,7 @@ public class monthlyBudgetBuilder {
 	if (cateValue == 2) map = variable;
 	if (cateValue == 3) map = periodic;
 	map.put(category, map.get(category) + price);
+	reCalculate();
     }
 
     public expenseBuilder getBuilder(String category) {
@@ -128,7 +134,7 @@ public class monthlyBudgetBuilder {
 	if (cateValue == 1) eB = fixedBuilder;
 	if (cateValue == 2) eB = variableBuilder;
 	if (cateValue == 3) eB = periodicBuilder;
-	key = category
+	key = category;
 	if (category.equals("diningOut") || category.equals("groceries")) key = "food";
 	eB = eB.get(key);
 	if (key.equals("food")) eB = eB.get(category);
@@ -138,12 +144,12 @@ public class monthlyBudgetBuilder {
     public int getCategory(String category) {
 	if (fixed.containsKey(category)) {
 	    return 1;
-	}
-	if (variable.containsKey(category)) {
+	} else if (variable.containsKey(category)) {
 	    return 2;
-	}
-	if (periodic.containsKey(category)) {
+	} else if (periodic.containsKey(category)) {
 	    return 3;
+	} else {
+	    return 0;
 	}
     }
 
