@@ -10,7 +10,7 @@ ChangeLog
 May 23 - Create repository,  Wrote basic monthly budget builder class, expense builder and expense class, added add method
 May 26 - Add Tommy as Contributor
 May 27 - Add budgetGrabber class
-May 29 - Add Execute and Control class
+May 29 - Add Execute, Control, budgetTree and treeNode class
 
 ----------------------------
 To Be Changed/Implemented
