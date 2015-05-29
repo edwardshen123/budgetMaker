@@ -2,6 +2,7 @@
 
 ============================
 Personal Budget Builder
+Edward Shen and Tommy Li, Period 2
 ============================
 
 ----------------------------
