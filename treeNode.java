@@ -3,6 +3,7 @@ public class treeNode {
     String name;
     treeNode[] child;
     int numCategory;
+    int lastRemoved;
 
     Expense expenses;
 
@@ -15,15 +16,28 @@ public class treeNode {
 	child = treeNode[numChildren];
 	numCategory = 0;
 	expenses = null;
+	lastRemoved = 11;
     }
 
     public treeNode(String name, Expense expenses) {
 	this.name = name;
-	child = treeNode[10];
+	child = treeNode[0];
 	numCategory = 0;
+	lastRemoved = 1;
 	this.expenses = expenses;
     }
 
+    public int findCategory(String name) {
+	for (int i = 0; i < child.length; i++) {
+	    if (child[i].getName().equals(name)) {
+		return i;
+	    }
+	}
+	return -1;
+    }
+    public String getName() {
+	return name;
+    }
     public Expense getExpenses() {
 	return expenses;
     }
