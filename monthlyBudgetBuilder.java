@@ -15,6 +15,9 @@ public class monthlyBudgetBuilder {
     private double netIncome;
     private double netExpenses;
 
+    //
+    private treeNode expenses;
+
     //Income
     private double wage;
     private double gift;
@@ -36,6 +39,21 @@ public class monthlyBudgetBuilder {
 	reCalculate();
     }
 
+    private void initiate() {
+	expenses = new treeNode("All Expenses");
+	treeNode fixed = new treeNode("Fixed Expenses");
+	treeNode variable = new treeNode("Variable Expenses");
+	treeNode periodic = new treeNode("Periodic Expenses");
+	treeNode food = new treeNode("Food");
+	fixed.addCategory(new treeNode(""));
+	fixed.addCategory(new treeNode(""));
+	fixed.addCategory(new treeNode(""));
+	variable.addCategory(new treeNode(""));
+	variable.addCategory(new treeNode(""));
+	variable.addCategory(new treeNode(""));
+	periodic.addCategory(new treeNode(""));
+	periodic.addCategory(new treeNode(""));
+    }
     private void initiate() {
 	fixedBuilder = new expenseBuilder("fixedExpenses");
 	variableBuilder = new expenseBuilder("variableExpenses");

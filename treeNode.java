@@ -49,7 +49,11 @@ public class treeNode {
 	if (isFull()) {
 	    expand();
 	}
-	child[numCategory] = t;
+	int i = 0;
+	while (child[i] != null) {
+	    i++;
+	}
+	child[i] = t;
 	numCategory++;
     }
     private void expand() {
@@ -60,6 +64,8 @@ public class treeNode {
 	child = tmp;
     }
     public treeNode removeCategory(String name) {
+	lastRemoved = findCategory(name);
+	child[lastRemoved] = null;
 	numCategory--;
     }
     public boolean isFull() {
