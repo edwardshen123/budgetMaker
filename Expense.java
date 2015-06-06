@@ -8,7 +8,7 @@ public class Expense {
     
     public Expense(String item, double unitPrice, int quantity) {
 	this.item = item;
-	this.price = price;
+	this.unitPrice = unitPrice;
 	this.quantity = quantity;
 	next = null;
     }

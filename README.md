@@ -12,6 +12,7 @@ May 23 - Create repository,  Wrote basic monthly budget builder class, expense b
 May 26 - Add Tommy as Contributor
 May 27 - Add budgetGrabber class
 May 29 - Add Execute, Control, budgetTree and treeNode class
+June 06 - Changed expense storage into tree format
 
 ----------------------------
 To Be Changed/Implemented
