@@ -15,4 +15,7 @@ public class budgetGrabber {
     public static void write(String filename, monthlyBudgetBuilder builder) {
 	Scanner sc = new Scanner(new File(filename));    
     }
+
+    public static String makeString(monthlyBudgetBuilder budget) {
+    }
 }

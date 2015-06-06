@@ -21,3 +21,4 @@ To Be Changed/Implemented
 - Finish Execute and Control class
 - Add remove functions (for category and item changes)
 - Write write function in budgetGrabber
+- Make a config file
