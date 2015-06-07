@@ -1,13 +1,30 @@
 public class budgetTree {
 
     private treeNode expenses;
+
+    private int size;
     
-    public budgetTree() {
+    public budgetTree(boolean custom) {
 	expenses = new treeNode("All Expenses");
-	initiate();
+	size = 1;
+	if (custom = true) {
+	    initiate();
+	} else {
+	    advancedInitiate();
+	}
     }
 
     public void initiate() {
+	treeNode fixed = new treeNode("Fixed Expenses");
+	treeNode variable = new treeNode("Variable Expenses");
+	treeNode periodic = new treeNode("Periodic Expenses");
+	expenses.addChild(fixed);
+	expenses.addChild(variable);
+	expenses.addChild(periodic);
+	size += 3;
+    }
+
+    public void advancedInitiate() {
 	//Expense Initiation
 	treeNode fixed = new treeNode("Fixed Expenses");
 	treeNode variable = new treeNode("Variable Expenses");
@@ -26,6 +43,7 @@ public class budgetTree {
 	expenses.addChild(fixed);
 	expenses.addChild(variable);
 	expenses.addChild(periodic);
+	size += 13;
     }
 
     public treeNode findCategory(String name, treeNode node) {
@@ -47,6 +65,11 @@ public class budgetTree {
 
     public treeNode findCategory(String name) {
 	return findCategory(name, expenses);
+    }
+
+    public String traverse() {
+	String s = "";
+	
     }
 
     public static void main(String[] args) {
