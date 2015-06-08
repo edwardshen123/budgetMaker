@@ -1,18 +1,23 @@
 public class Expense {
 
+    private String source;
     private String item;
     private double unitPrice;
     private int quantity;
 
     private Expense next;
     
-    public Expense(String item, double unitPrice, int quantity) {
+    public Expense(String source, String item, double unitPrice, int quantity) {
+	this.source = source;
 	this.item = item;
 	this.unitPrice = unitPrice;
 	this.quantity = quantity;
 	next = null;
     }
 
+    public boolean hasNext() {
+	return next != null;
+    }
     public void setNext(Expense e) {
 	next = e;
     }
@@ -20,6 +25,9 @@ public class Expense {
 	return next;
     }
 
+    public String getSource() {
+	return source;
+    }
     public String getItem() {
 	return item;
     }
@@ -33,7 +41,7 @@ public class Expense {
 	return unitPrice * quantity;
     }
     public String toString() {
-	return item + ": " + getSum();
+	return source + "," + item + "," + unitPrice + "," + quantity;
     }
 
 }

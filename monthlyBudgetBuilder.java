@@ -9,11 +9,8 @@ public class monthlyBudgetBuilder {
     private int month;
     private int year;
 
-    private int budgetBalance;
-
     //Sum totals
     private double netIncome;
-    private double netExpenses;
 
     //Income
     private double wage;
@@ -22,11 +19,14 @@ public class monthlyBudgetBuilder {
     private double allowances;
 
     //Expense
-    private treeNode expenses;
+    private budgetTree tree;
 
     public monthlyBudgetBuilder(int month, int year) {
 	this.month = month;
 	this.year = year;
+
+	tree = budgetTree(true);
+
 	initiate();
     }
 

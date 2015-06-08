@@ -6,7 +6,7 @@ public class budgetGrabber {
 	Scanner sc = new Scanner(filename);
 	while (sc.hasNextLine()) {
 	    String s = sc.nextLine();
-	    String[] data = s.split(",");
+	    String[] data = s.split("|");
 	    String location = data[0];
 	    String[] category = location.split(";");
 	}

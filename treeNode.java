@@ -79,27 +79,32 @@ public class treeNode {
 	return children[index];
     }
     public void addChild(treeNode t) {
-	if (isFull()) {
-	    expand();
+	if (findChild(t.getName()) == -1) {
+	    if (isFull()) {
+		expand();
+	    }
+	    int i = 0;
+	    while (children[i] != null) {
+		i++;
+	    }
+	    children[i] = t;
+	    t.setParent(this);
+	    sum += t.getSum();
+	    additionUpdate(t.getSum());
+	    numChildren++;
 	}
-	int i = 0;
-	while (children[i] != null) {
-	    i++;
-	}
-	children[i] = t;
-	t.setParent(this);
-	sum += t.getSum();
-	additionUpdate(t.getSum());
-	numChildren++;
     }
     public treeNode removeChild(String name) {
 	lastRemoved = findChild(name);
-	treeNode removed = children[lastRemoved];
-	sum -= removed.getSum();
-	subtractionUpdate(removed.getSum());
-	children[lastRemoved] = null;
-	numChildren--;
-	return removed;
+	if (lastRemoved != -1) {
+	    treeNode removed = children[lastRemoved];
+	    sum -= removed.getSum();
+	    subtractionUpdate(removed.getSum());
+	    children[lastRemoved] = null;
+	    numChildren--;
+	    return removed;
+	}
+	return null;
     }
     public int getNumChildren() {
 	return numChildren;

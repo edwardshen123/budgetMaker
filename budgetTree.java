@@ -3,11 +3,15 @@ public class budgetTree {
     private treeNode expenses;
 
     private int size;
+
+    public budgetTree() {
+	this(false);
+    }
     
     public budgetTree(boolean custom) {
 	expenses = new treeNode("All Expenses");
 	size = 1;
-	if (custom = true) {
+	if (custom == true) {
 	    initiate();
 	} else {
 	    advancedInitiate();
@@ -67,23 +71,45 @@ public class budgetTree {
 	return findCategory(name, expenses);
     }
 
+    public void addCategory(treeNode parent, treeNode newChild) {
+	parent.addChild(newChild);
+    }
+
+    public void removeCategory(treeNode parent, String child) {
+	parent.removeChild(child);
+    }
+
     public String traverse() {
-	String s = "";
-	
+	String s = traverse(expenses);
+	return s;
     }
 
     public String traverse(treeNode node) {
 	if (node.isLeaf()) {
-	    String location;
-	} else {
-	    for (int i = 0; i < node.getNumChildren(); i++) {
+	    String data = node.getName();
+	    Expense nodeExpenses = node.getData();
+	    while (nodeExpenses != null) {
+		data += "|" + nodeExpenses;
+		nodeExpenses = nodeExpenses.getNext();
+	    }
+	    data += "\n";
+	    return data;
+	}
+	String output = "";
+	for (int i = 0; i < node.getNumChildren(); i++) {
+	    if (node.getParent() != null) {
+		String current = node.getName();
+		output += current + ";" + traverse(node.getChild(i));
+	    } else {
+		output += traverse(node.getChild(i));
 	    }
 	}
+	return output;
     }
 
     public static void main(String[] args) {
-	budgetTree test = new budgetTree();
+	budgetTree test = new budgetTree(true);
 	treeNode n = test.findCategory("Food");
-	System.out.println(n.getName());
+	System.out.println(test.traverse());
     }
 }
