@@ -72,6 +72,15 @@ public class budgetTree {
 	
     }
 
+    public String traverse(treeNode node) {
+	if (node.isLeaf()) {
+	    String location;
+	} else {
+	    for (int i = 0; i < node.getNumChildren(); i++) {
+	    }
+	}
+    }
+
     public static void main(String[] args) {
 	budgetTree test = new budgetTree();
 	treeNode n = test.findCategory("Food");

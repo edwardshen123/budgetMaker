@@ -52,6 +52,9 @@ public class treeNode {
     public void setSum(double num) {
 	sum = num;
     }
+    public boolean isLeaf() {
+	return numChildren == 0;
+    }
 
     //Functions for Parents
     public void setParent(treeNode t) {
