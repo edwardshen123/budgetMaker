@@ -41,7 +41,9 @@ public class test {
 	}
 	try {
 	    Scanner sc = new Scanner(new File("test.txt"));
-	    System.out.println(sc.next());
+	    while (sc.hasNextLine()) {
+		System.out.println(sc.next());
+	    }
 	} catch(FileNotFoundException e) {
 	    System.out.println("File not found");
 	}

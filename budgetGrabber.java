@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 
 public class budgetGrabber {
 
@@ -13,9 +16,7 @@ public class budgetGrabber {
     }
 
     public static void write(String filename, monthlyBudgetBuilder builder) {
-	Scanner sc = new Scanner(new File(filename));    
-    }
-
-    public static String makeString(monthlyBudgetBuilder budget) {
+	PrintWriter printer = new PrintWriter(new File(filename));
+	
     }
 }

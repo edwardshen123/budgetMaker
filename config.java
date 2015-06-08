@@ -10,6 +10,9 @@ public class config {
     public String read() {
 	Scanner sc = new Scanner(new File(configFileName));
 	String s = "";
+	while (sc.hasNextLine()) {
+	    s += sc.nextLine() + "/n";
+	}
 	sc.close();
 	return s;
     }

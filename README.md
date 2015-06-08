@@ -13,6 +13,8 @@ May 26 - Add Tommy as Contributor
 May 27 - Add budgetGrabber class
 May 29 - Add Execute, Control, budgetTree and treeNode class
 June 06 - Changed expense storage into tree format
+June 07 - Make the config java file
+June 08 - Make the config text file
 
 ----------------------------
 To Be Changed/Implemented
@@ -21,4 +23,4 @@ To Be Changed/Implemented
 - Finish Execute and Control class
 - Add remove functions (for category and item changes)
 - Write write function in budgetGrabber
-- Make a config file
+- Write a config file
