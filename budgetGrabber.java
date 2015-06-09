@@ -1,3 +1,5 @@
+//Reads a txt file to build a budget
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;
