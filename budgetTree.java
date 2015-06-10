@@ -7,6 +7,16 @@ public class budgetTree {
     public budgetTree() {
 	this(false);
     }
+
+    public budgetTree(String config) {
+	String[] layers = config.split("\n");
+	expenses = new treeNode(layers[0]);
+	size = 1;
+	for (int i = 1; i < layers.length; i++) {
+	    String[] subLayers = layers[i].split("|");
+	    
+	}
+    }
     
     public budgetTree(boolean custom) {
 	expenses = new treeNode("All Expenses");
