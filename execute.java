@@ -1,8 +1,18 @@
+//Control load or new
+//New: Check if expense have been added; give option to overwrite
+//Expenses to file - budgetGrabber
+//Loading existing: ls function - cd into folder, etc
+//Ask user for date of expense
+//Limit # of scanners
+//work on montly budgetbuilder
+
 import java.io.*;
 import java.util.*;
 
 public class execute {
     public static void main(String[] args) {
+
+	System.out.println("Create an expense or load an existing expense");
 
 	treeNode expensetotal  = new treeNode("Total Expense");
 	Expense sum = new Expense("all", "all", 0.0, 0);
