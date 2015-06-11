@@ -12,9 +12,16 @@ public class budgetTree {
 	String[] layers = config.split("\n");
 	expenses = new treeNode(layers[0]);
 	size = 1;
+	queue waitingLine = new queue(expenses);
 	for (int i = 1; i < layers.length; i++) {
 	    String[] subLayers = layers[i].split("|");
-	    
+	    for (int j = 0; j < subLayers.length; j++) {
+		String[] children = subLayers[j].split(";");
+		String[] childrenNode = new String[children.length];
+		for (int i = 0;
+		treeNode parent = waitingLine.remove().getData();
+		
+	    }
 	}
     }
     

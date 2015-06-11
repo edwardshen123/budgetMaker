@@ -1,9 +1,9 @@
 public class node {
 
-    private String data;
+    private treeNode data;
     private node next;
 
-    public node(String data) {
+    public node(treeNode data) {
 	this.data = data;
 	next = null;
     }
@@ -16,7 +16,7 @@ public class node {
 	return next;
     }
 
-    public String getData() {
+    public treeNode getData() {
 	return data;
     }
 }

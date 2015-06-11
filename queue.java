@@ -10,9 +10,18 @@ public class queue {
 	size = 0;
     }
 
-    public void add(node n) {
+    public queue(treeNode tN) {
+	node n = new node(tN);
+	front = n;
+	back = n;
+	size = 1;
+    }
+
+    public void add(treeNode tN) {
+	node n = new node(tN);
 	if (size == 0) {
 	    front = n;
+	    back = n;
 	} else {
 	    back.setNext(n);
 	    back = n;
