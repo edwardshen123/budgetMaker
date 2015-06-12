@@ -8,12 +8,15 @@ public class config {
     private static final String configFileName = "config.txt";
 
     public String read() {
-	Scanner sc = new Scanner(new File(configFileName));
 	String s = "";
-	while (sc.hasNextLine()) {
-	    s += sc.nextLine() + "\n";
+	try {
+	    Scanner sc = new Scanner(new File(configFileName));
+	    while (sc.hasNextLine()) {
+		s += sc.nextLine() + "\n";
+	    }
+	    sc.close();
+	} catch (FileNotFoundException e) {
 	}
-	sc.close();
 	return s;
     }
 
@@ -21,7 +24,7 @@ public class config {
 	try {
 	    PrintWriter printer = new PrintWriter(new File(configFileName));
 	    printer.write(output);
-	    printer.close()
+	    printer.close();
 	} catch (FileNotFoundException e) {
 	    System.out.println("File Not Found");
 	}

@@ -26,7 +26,7 @@ June 09 - Finished Config.java and started creating a function to read the confi
 
 June 10 - Continue to write the config string decoder function
 
-June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes
+June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes, integrated budgetTree and config java files
 
 ----------------------------
 To Be Changed/Implemented

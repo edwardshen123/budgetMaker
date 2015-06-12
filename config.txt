@@ -1,1 +1,4 @@
-
+All Expenses
+Fixed Expenses;Variable Expenses;Periodic Expenses
+Rent;Savings;Loan Interest Payments/Food;Investments;Utilities/Insurances;Entertainments
+///Groceries;Dining Out

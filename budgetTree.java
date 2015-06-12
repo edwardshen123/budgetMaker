@@ -1,11 +1,13 @@
 public class budgetTree {
 
+    //Instance Variables
     private treeNode expenses;
 
     private int size;
 
+    //Constructors
     public budgetTree() {
-	this(false);
+	this(new config().read());
     }
 
     public budgetTree(String config) {
@@ -22,55 +24,15 @@ public class budgetTree {
 		    for (int k = 0; k < children.length; k++) {
 			treeNode child = new treeNode(children[k]);
 			parent.addChild(child);
+			size++;
 			waitingLine.add(child);
 		    }
 		}
 	    }
 	}
     }
-    
-    public budgetTree(boolean custom) {
-	expenses = new treeNode("All Expenses");
-	size = 1;
-	if (custom == true) {
-	    initiate();
-	} else {
-	    advancedInitiate();
-	}
-    }
 
-    public void initiate() {
-	treeNode fixed = new treeNode("Fixed Expenses");
-	treeNode variable = new treeNode("Variable Expenses");
-	treeNode periodic = new treeNode("Periodic Expenses");
-	expenses.addChild(fixed);
-	expenses.addChild(variable);
-	expenses.addChild(periodic);
-	size += 3;
-    }
-
-    public void advancedInitiate() {
-	//Expense Initiation
-	treeNode fixed = new treeNode("Fixed Expenses");
-	treeNode variable = new treeNode("Variable Expenses");
-	treeNode periodic = new treeNode("Periodic Expenses");
-	treeNode food = new treeNode("Food");
-	food.addChild(new treeNode("Groceries"));
-	food.addChild(new treeNode("Dining Out"));
-	fixed.addChild(new treeNode("Rent"));
-	fixed.addChild(new treeNode("Savings"));
-	fixed.addChild(new treeNode("Loan Interest Payments"));
-	variable.addChild(food);
-	variable.addChild(new treeNode("Investments"));
-	variable.addChild(new treeNode("Utilities"));
-	periodic.addChild(new treeNode("Insurances"));
-	periodic.addChild(new treeNode("Entertainments"));
-	expenses.addChild(fixed);
-	expenses.addChild(variable);
-	expenses.addChild(periodic);
-	size += 13;
-    }
-
+    //Methods
     public treeNode findCategory(String name, treeNode node) {
 	if (node == null) {
 	    return null;
@@ -94,10 +56,15 @@ public class budgetTree {
 
     public void addCategory(treeNode parent, treeNode newChild) {
 	parent.addChild(newChild);
+	updateConfig();
     }
 
     public void removeCategory(treeNode parent, String child) {
 	parent.removeChild(child);
+	updateConfig();
+    }
+
+    public void updateConfig() {
     }
 
     public String traverse() {
@@ -136,7 +103,8 @@ public class budgetTree {
     }
 
     public static void main(String[] args) {
-	budgetTree test = new budgetTree("All Expenses\nVariable;Fixed;Periodic\nFood;Utilities/Rent;Interest/Insurances;Taxes\nGroceries;Dining Out//Blab;baal");
+	//budgetTree test = new budgetTree("All Expenses\nVariable;Fixed;Periodic\nFood;Utilities/Rent;Interest/Insurances;Taxes\nGroceries;Dining Out//Blab;baal");
+	budgetTree test = new budgetTree();
 	treeNode n = test.findCategory("Food");
 	System.out.println(test.traverse());
     }
