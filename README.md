@@ -26,12 +26,12 @@ June 09 - Finished Config.java and started creating a function to read the confi
 
 June 10 - Continue to write the config string decoder function
 
-June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes, integrated budgetTree and config java files
+June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes, integrated budgetTree and config java files, begin work on budgetGrabber file
 
 ----------------------------
 To Be Changed/Implemented
 ----------------------------
-- Transition to Tree storage
+- Store Income with a Tree
 - Finish Execute and Control class
 - Add remove functions (for category and item changes)
 - Write write function in budgetGrabber

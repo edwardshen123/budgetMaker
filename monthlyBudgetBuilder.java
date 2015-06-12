@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class monthlyBudgetBuilder {
 
     //Base Info
-    private int month;
+    private String month;
     private int year;
 
     //Sum totals
@@ -19,14 +19,16 @@ public class monthlyBudgetBuilder {
     private double allowances;
 
     //Expense
-    private budgetTree tree;
+    private budgetTree expenseTree;
 
-    public monthlyBudgetBuilder(int month, int year) {
+    public monthlyBudgetBuilder(String month, int year) {
+	this(month, year, new budgetTree());
+    }
+
+    public monthlyBudgetBuilder(String month, int year, budgetTree tree) {
 	this.month = month;
 	this.year = year;
-
-	tree = budgetTree(true);
-
+	expenseTree = tree;
 	initiate();
     }
 
@@ -37,6 +39,18 @@ public class monthlyBudgetBuilder {
 	gift = 0.0;
 	capitalGain = 0.0;
 	allowances = 0.0;
+    }
+
+    public budgetTree getExpenses() {
+	return expenseTree;
+    }
+
+    public String getMonth() {
+	return month;
+    }
+
+    public int getYear() {
+	return year;
     }
 
     public String toString() {
