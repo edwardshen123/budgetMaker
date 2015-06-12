@@ -10,6 +10,11 @@ public class budgetGrabber {
     public static monthlyBudgetBuilder read(String filename) {
 	try {
 	    Scanner sc = new Scanner(filename);
+	    //File Name Parser
+	    String[] info = filename.split(" ");
+	    String month = info[0];
+	    int year = Integer.parseInt(info[1]);
+	    //Data Parser
 	    while (sc.hasNextLine()) {
 		String s = sc.nextLine();
 		String[] data = s.split("/");
@@ -22,7 +27,7 @@ public class budgetGrabber {
     }
 
     public static void write(monthlyBudgetBuilder builder) {
-	String filename = builder.getMonth() + "/" + builder.getYear() + " budget";
+	String filename = builder.getMonth() + " " + builder.getYear() + " budget";
 	try {
 	    PrintWriter printer = new PrintWriter(new File(filename));
 	    String output = builder.getExpenses().traverse();
