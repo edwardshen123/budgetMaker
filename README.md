@@ -22,6 +22,12 @@ June 07 - Make the config java file
 
 June 08 - Make the config text file
 
+June 09 - Finished Config.java and started creating a function to read the config string
+
+June 10 - Continue to write the config string decoder function
+
+June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes
+
 ----------------------------
 To Be Changed/Implemented
 ----------------------------
@@ -29,4 +35,3 @@ To Be Changed/Implemented
 - Finish Execute and Control class
 - Add remove functions (for category and item changes)
 - Write write function in budgetGrabber
-- Write a config file

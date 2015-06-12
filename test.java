@@ -30,6 +30,7 @@ public class test {
 	t.add(1, 10);
 	t.add(2, "String");
 	*/
+	/*
 	try {
 	    //PrintWriter wipes the file and writes on a blank file everytime
 	    PrintWriter printer = new PrintWriter(new File("test.txt"));
@@ -46,6 +47,13 @@ public class test {
 	    }
 	} catch(FileNotFoundException e) {
 	    System.out.println("File not found");
+	}
+	*/
+	//Don't use | as divider (it will split all letters)
+	String s = "Hello/You/Nice";
+	String[] sa = s.split("/");
+	for (String ss:sa) {
+	    System.out.println(ss);
 	}
     }
 }

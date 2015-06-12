@@ -13,7 +13,7 @@ public class queue {
     public queue(treeNode tN) {
 	node n = new node(tN);
 	front = n;
-	back = n;
+	back = front;
 	size = 1;
     }
 
@@ -21,7 +21,7 @@ public class queue {
 	node n = new node(tN);
 	if (size == 0) {
 	    front = n;
-	    back = n;
+	    back = front;
 	} else {
 	    back.setNext(n);
 	    back = n;
@@ -38,5 +38,16 @@ public class queue {
 
     public int size() {
 	return size;
+    }
+
+    public String toString() {
+	String s = "";
+	node tmp = front;
+	while (tmp.getNext() != null) {
+	    s += tmp.getData().getName() + ",";
+	    tmp = tmp.getNext();
+	}
+	s += tmp.getData().getName();
+	return s;
     }
 }

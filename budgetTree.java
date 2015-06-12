@@ -14,13 +14,17 @@ public class budgetTree {
 	size = 1;
 	queue waitingLine = new queue(expenses);
 	for (int i = 1; i < layers.length; i++) {
-	    String[] subLayers = layers[i].split("|");
+	    String[] subLayers = layers[i].split("/");
 	    for (int j = 0; j < subLayers.length; j++) {
-		String[] children = subLayers[j].split(";");
-		String[] childrenNode = new String[children.length];
-		for (int i = 0;
 		treeNode parent = waitingLine.remove().getData();
-		
+		if (!subLayers[j].equals("")) {
+		    String[] children = subLayers[j].split(";");
+		    for (int k = 0; k < children.length; k++) {
+			treeNode child = new treeNode(children[k]);
+			parent.addChild(child);
+			waitingLine.add(child);
+		    }
+		}
 	    }
 	}
     }
@@ -103,7 +107,19 @@ public class budgetTree {
 
     public String traverse(treeNode node) {
 	if (node.isLeaf()) {
-	    String data = node.getName();
+	    //Location String
+	    String location = "";
+	    treeNode tmp = node;
+	    while (tmp.getParent() != null) {
+		if (tmp == node) {
+		    location = tmp.getName() + location;
+		} else {
+		    location = tmp.getName() + ";" + location;
+		}
+		tmp = tmp.getParent();
+	    }
+	    //Data String
+	    String data = location;
 	    Expense nodeExpenses = node.getData();
 	    while (nodeExpenses != null) {
 		data += "|" + nodeExpenses;
@@ -114,18 +130,13 @@ public class budgetTree {
 	}
 	String output = "";
 	for (int i = 0; i < node.getNumChildren(); i++) {
-	    if (node.getParent() != null) {
-		String current = node.getName();
-		output += current + ";" + traverse(node.getChild(i));
-	    } else {
-		output += traverse(node.getChild(i));
-	    }
+	    output += traverse(node.getChild(i));
 	}
 	return output;
     }
 
     public static void main(String[] args) {
-	budgetTree test = new budgetTree(true);
+	budgetTree test = new budgetTree("All Expenses\nVariable;Fixed;Periodic\nFood;Utilities/Rent;Interest/Insurances;Taxes\nGroceries;Dining Out//Blab;baal");
 	treeNode n = test.findCategory("Food");
 	System.out.println(test.traverse());
     }
