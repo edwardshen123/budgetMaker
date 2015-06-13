@@ -14,6 +14,7 @@ public class budgetGrabber {
 	    String[] info = filename.split(" ");
 	    String month = info[0];
 	    int year = Integer.parseInt(info[1]);
+	    budgetTree bTree = new budgetTree(false);
 	    //Data Parser
 	    while (sc.hasNextLine()) {
 		String s = sc.nextLine();

@@ -3,11 +3,20 @@ public class budgetTree {
     //Instance Variables
     private treeNode expenses;
 
+    private boolean isNew;
     private int size;
 
     //Constructors
     public budgetTree() {
 	this(new config().read());
+    }
+
+    public budgetTree(boolean isNew) {
+	if (!isNew) {
+	    expenses = new treeNode("All Expenses");
+	    size = 1;
+	    this.isNew = isNew;
+	}
     }
 
     public budgetTree(String config) {
@@ -30,6 +39,7 @@ public class budgetTree {
 		}
 	    }
 	}
+	isNew = true;
     }
 
     //Methods
@@ -65,6 +75,10 @@ public class budgetTree {
     }
 
     public void updateConfig() {
+	if (isNew) {
+	    config Config = new config();
+	    Config.write(traverse());
+	}
     }
 
     public String traverse() {
