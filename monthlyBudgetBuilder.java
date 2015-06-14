@@ -41,6 +41,38 @@ public class monthlyBudgetBuilder {
 	allowances = 0.0;
     }
 
+    public void setWage(double wage) {
+	this.wage = wage;
+    }
+
+    public double getWage() {
+	return wage;
+    }
+
+    public void setGift(double gift) {
+	this.gift = gift;
+    }
+
+    public double getGift() {
+	return gift;
+    }
+
+    public void setCapital(double capital) {
+	capitalGain = capital;
+    }
+
+    public double getCapital() {
+	return capitalGain;
+    }
+
+    public void setAllowance(double allowance) {
+	allowances = allowance;
+    }
+
+    public double getAllowance() {
+	return allowances;
+    }
+
     public budgetTree getExpenses() {
 	return expenseTree;
     }
