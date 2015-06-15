@@ -78,7 +78,7 @@ public class treeNode {
     public treeNode getChild(int index) {
 	return children[index];
     }
-    public void addChild(treeNode t) {
+    public boolean addChild(treeNode t) {
 	if (findChild(t.getName()) == -1) {
 	    if (isFull()) {
 		expand();
@@ -92,7 +92,9 @@ public class treeNode {
 	    sum += t.getSum();
 	    additionUpdate(t.getSum());
 	    numChildren++;
+	    return true;
 	}
+	return false;
     }
     public treeNode removeChild(String name) {
 	lastRemoved = findChild(name);

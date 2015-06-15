@@ -50,10 +50,19 @@ public class test {
 	}
 	*/
 	//Don't use | as divider (it will split all letters)
+	/*
 	String s = "Hello/You/Nice";
 	String[] sa = s.split("/");
 	for (String ss:sa) {
 	    System.out.println(ss);
 	}
+	*/
+	monthlyBudgetBuilder test = new monthlyBudgetBuilder("June", 2007);
+	budgetTree testTree = test.getExpenses();
+	Expense expense = new Expense("test Inc", "test", 100.0, 10);
+	treeNode category = testTree.findCategory("Dining Out");
+	category.addData(expense);
+	budgetGrabber.write(test);
+	
     }
 }

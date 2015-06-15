@@ -11,6 +11,7 @@ public class monthlyBudgetBuilder {
 
     //Sum totals
     private double netIncome;
+    private double budgetBalance;
 
     //Income
     private double wage;

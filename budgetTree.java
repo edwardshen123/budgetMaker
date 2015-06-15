@@ -63,10 +63,15 @@ public class budgetTree {
     public treeNode findCategory(String name) {
 	return findCategory(name, expenses);
     }
+    
+    public treeNode getRoot() {
+	return expenses;
+    }
 
-    public void addCategory(treeNode parent, treeNode newChild) {
-	parent.addChild(newChild);
+    public boolean addCategory(treeNode parent, treeNode newChild) {
+	boolean retVal = parent.addChild(newChild);
 	updateConfig();
+	return retVal;
     }
 
     public void removeCategory(treeNode parent, String child) {
