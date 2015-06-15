@@ -33,13 +33,15 @@ public class budgetTree {
     }
     
     private void printBudgetTree(treeNode node, int indent, StringBuilder sb) {
-	sb.append(getIndentString(indent));
-	sb.append("+--");
-	sb.append(node.getName());
-	sb.append("/");
-	sb.append("\n");
-	for (treeNode child : node.getChildren()) {
-	    printBudgetTree(child, indent + 1, sb);
+	if (node != null) {
+	    sb.append(getIndentString(indent));
+	    sb.append("+--");
+	    sb.append(node.getName());
+	    sb.append("/");
+	    sb.append("\n");
+	    for (treeNode child : node.getChildren()) {
+		printBudgetTree(child, indent + 1, sb);
+	    }
 	}
     }
 
