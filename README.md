@@ -5,6 +5,9 @@ Personal Budget Builder
 Edward Shen and Tommy Li, Period 2
 ============================
 
+Summary:
+The budget builder allows the user to modify and create budgets that allow them to keep track of their expenses in one place. Storing the budget in a tree proved useful due to the node's ability to have multiple children, allowing expenses to be catagorized rather easily.
+
 ----------------------------
 ChangeLog
 ----------------------------
@@ -34,7 +37,8 @@ June 13 - Overhauled driver and continued to work on the writing and printing fu
 
 June 14 - Fine tuned the file creation and reading functions of the budgetGrabber class, and work on Driver
 
-June 15 -
+June 15 - Cleaning up execute and control.
+
 ----------------------------
 To Be Changed/Implemented
 ----------------------------
