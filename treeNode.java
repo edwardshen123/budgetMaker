@@ -78,6 +78,9 @@ public class treeNode {
     public treeNode getChild(int index) {
 	return children[index];
     }
+    public treeNode[] getChildren() {
+	return children;
+    }
     public boolean addChild(treeNode t) {
 	if (findChild(t.getName()) == -1) {
 	    if (isFull()) {
