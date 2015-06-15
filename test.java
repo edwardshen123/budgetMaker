@@ -63,6 +63,7 @@ public class test {
 	treeNode category = testTree.findCategory("Dining Out");
 	category.addData(expense);
 	budgetGrabber.write(test);
-	
+	monthlyBudgetBuilder tester = budgetGrabber.read("June 2007 Budget");
+	System.out.println(tester.getExpenses().traverse());
     }
 }

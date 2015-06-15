@@ -108,7 +108,7 @@ public class budgetTree {
 	    String data = location;
 	    Expense nodeExpenses = node.getData();
 	    while (nodeExpenses != null) {
-		data += "|" + nodeExpenses;
+		data += "/" + nodeExpenses;
 		nodeExpenses = nodeExpenses.getNext();
 	    }
 	    data += "\n";
