@@ -1,12 +1,7 @@
-
 import java.io.*;
 import java.util.*;
 
 public class control {
-
-    private String search = "ls";
-    private String exit = "exit";
-
 
     //Taken from http://www.mkyong.com/java/how-to-traverse-a-directory-structure-in-java/
     public static void displayIt(File node){
@@ -19,7 +14,7 @@ public class control {
 	}
     }
 
-    public static void main(String[] args) {
+    public void run() {
 	Scanner ans = new Scanner(System.in);
 	String whatdo;
 	while (whatdo.equals('load') == false || whatdo.equals('create') == false) {
