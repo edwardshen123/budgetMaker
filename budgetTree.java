@@ -19,6 +19,38 @@ public class budgetTree {
 	}
     }
 
+    //Modified from http://stackoverflow.com/questions/10655085/print-directory-tree
+
+    public String printBudgetTree() {
+	return printBudgetTree(expenses);
+    }
+
+    public String printBudgetTree(treeNode node) {
+	int indent = 0;
+	StringBuilder sb = new StringBuilder();
+	printBudgetTree(node, indent, sb);
+	return sb.toString();
+    }
+    
+    private void printBudgetTree(treeNode node, int indent, StringBuilder sb) {
+	sb.append(getIndentString(indent));
+	sb.append("+--");
+	sb.append(node.getName());
+	sb.append("/");
+	sb.append("\n");
+	for (treeNode child : node.getChildren()) {
+	    printBudgetTree(child, indent + 1, sb);
+	}
+    }
+
+    private String getIndentString(int indent) {
+	StringBuilder sb = new StringBuilder();
+	for (int i = 0; i < indent; i++) {
+	    sb.append("|  ");
+	}
+	return sb.toString();
+    }
+    
     public budgetTree(String config) {
 	String[] layers = config.split("\n");
 	expenses = new treeNode(layers[0]);

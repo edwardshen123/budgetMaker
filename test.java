@@ -57,6 +57,9 @@ public class test {
 	    System.out.println(ss);
 	}
 	*/
+
+
+	
 	monthlyBudgetBuilder test = new monthlyBudgetBuilder("June", 2007);
 	budgetTree testTree = test.getExpenses();
 	Expense expense = new Expense("test Inc", "test", 100.0, 10);
@@ -64,6 +67,9 @@ public class test {
 	category.addData(expense);
 	budgetGrabber.write(test);
 	monthlyBudgetBuilder tester = budgetGrabber.read("June 2007 Budget");
-	System.out.println(tester.getExpenses().traverse());
+	budgetTree testerTree = tester.getExpenses();
+	System.out.println(testerTree.printBudgetTree());
+	//System.out.println(tester.getExpenses().traverse());
+	
     }
 }

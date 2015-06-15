@@ -28,6 +28,13 @@ June 10 - Continue to write the config string decoder function
 
 June 11 - Debugged and found "|" to break the String split function, fixed traverse function to print all parent nodes, integrated budgetTree and config java files, begin work on budgetGrabber file
 
+June 12 - Continued to debug and work on the driver to bring everything together
+
+June 13 - Overhauled driver and continued to work on the writing and printing functionalities
+
+June 14 - Fine tuned the file creation and reading functions of the budgetGrabber class, and work on Driver
+
+June 15 -
 ----------------------------
 To Be Changed/Implemented
 ----------------------------
@@ -35,9 +42,13 @@ To Be Changed/Implemented
 - Finish Execute and Control class
 - Add remove functions (for category and item changes)
 - Write write function in budgetGrabber
+- Find a way to print out the tree nicely to allow the user to visualize their budget
 
-Requirements for Storage (stick w/ tree)
+----------
+Problems:
+----------
+- The driver file - how to get the user to visualize their budget
+- Budget Editing functionality - allowing the user to modify a current budget
+- Combining Expenses and monthly budget so they work together
+- Making the code efficient (removing the need for multiple nested loops)
 
-- Easy to get summation data
-- Easy to traverse to get sub-categories
-- Customizable
